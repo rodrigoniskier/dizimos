@@ -1,0 +1,227 @@
+/* --- GERAL E VARIÁVEIS --- */
+:root {
+    --cor-primaria: #003366; /* Azul escuro presbiteriano */
+    --cor-secundaria: #e0e0e0; /* Cinza claro */
+    --cor-acento: #d4a017; /* Dourado/Mostarda para acentos */
+    --cor-texto: #333333;
+    --cor-fundo: #f4f4f4;
+    --fonte-titulo: 'Montserrat', sans-serif;
+    --fonte-corpo: 'Lora', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* --- CABEÇALHO (HERO) --- */
+.hero {
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('imagens/foto1.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--cor-acento);
+}
+
+.hero-content .logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.hero-content h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-content .slogan {
+    font-size: 1.2rem;
+    font-family: var(--fonte-corpo);
+    font-style: italic;
+}
+
+/* --- SEÇÕES PRINCIPAIS --- */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background-color: #ffffff;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+section h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* --- GALERIA DE FOTOS (SLIDER) --- */
+.gallery .slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery .slide {
+    min-width: 100%;
+    transition: opacity 1s ease;
+    display: none; /* Inicia oculto */
+}
+
+.gallery .slide.active {
+    display: block; /* Mostra o slide ativo */
+}
+
+.gallery .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 51, 102, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.gallery .slider-button.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.gallery .slider-button.next {
+    right: 0;
+}
+
+.gallery .slider-button:hover {
+    background-color: rgba(0, 51, 102, 0.9);
+}
+
+
+/* --- FAQ (PERGUNTAS E RESPOSTAS) --- */
+.faq-item {
+    border-bottom: 1px solid var(--cor-secundaria);
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-family: var(--fonte-titulo);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--cor-primaria);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--cor-acento);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 2000px; /* Valor alto para permitir expansão */
+    padding-top: 15px;
+}
+
+.summary {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.toggle-more {
+    background-color: var(--cor-acento);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--fonte-titulo);
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.toggle-more:hover {
+    background-color: #b8860b; /* Dourado mais escuro */
+}
+
+.full-text {
+    display: none; /* Oculto por padrão */
+}
+
+.full-text p, .full-text ul {
+    margin-bottom: 10px;
+}
+
+.full-text ul {
+    padding-left: 20px;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- ADAPTAÇÃO PARA TELAS MAIORES (TABLETS E DESKTOPS) --- */
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .hero-content .slogan {
+        font-size: 1.5rem;
+    }
+    section {
+        padding: 40px;
+    }
+}
